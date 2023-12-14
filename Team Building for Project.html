@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+<script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<link rel="stylesheet" href="https://www.npmjs.com/package/awesome-bootstrap-checkbox">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<head></head>
+<style>
+
+body{
+    background-color:#e1b382;
+    overflow-y: scroll
+}
+/* navigation menu styling*/
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.avatar{
+  border-radius:50%;
+}
+.menuContainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+/* project creation styling */
+.project{
+    width: 95%;
+    background: #e1b382;
+    margin-right: 0px;
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 100px;
+}
+
+.overview{
+    padding: 10px;
+    margin: 10px;
+    background: #e1b382;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 3px #12343b;
+    width: 90%;
+    margin-right: 0px;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.overview p{
+    color: black;
+    margin-left: 80px;
+}
+
+.overview span{
+    color: gray;
+}
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    align-items: center;
+    margin-left: 80px;
+
+  cursor: pointer;
+}
+
+.navproject .button{
+    color: #2d545e;
+    border-color:black;
+    border-style:solid;
+    border-radius: 10px;
+    background-color: white;
+    padding: 8px 8px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    align-items: center;
+    margin-left: 350px;
+    margin-right: 30px;
+
+  cursor: pointer;
+}
+
+.title{
+    color: white;
+    font-size: large;
+    font-family: Arial;
+}
+
+
+.title {
+        padding: 10px;
+        margin: 0px;
+        background: #2d545e;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 3px 3px 3px #12343b;
+}
+
+.title .transition{
+    margin-left: 470px;
+    margin-top: 20px;
+    height: auto;
+    width:20%;
+}
+
+.challenge{
+    margin-left:40px;
+}
+
+.challenge p{
+    color:black;
+}
+
+.challenge span{
+    color:gray;
+}
+
+.warning{
+    width:90%;
+    margin-left: 40px;
+    color:black;
+    height:40px;
+    font-size: smaller;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: orange ;
+    background-color: rgb(255,243,203);
+}
+
+.overviewtitle .asterisk{
+    color:red;
+}
+
+.overviewtitle{
+    margin-left: 80px;
+}
+
+.overviewtitle .slugbox{
+    margin-left: 5px;
+}
+
+.overview p.sub{
+    color:gray;
+}
+
+.recruitment{
+    width:400px;
+    display:inline-block;
+}
+
+.include1{
+    color:black;
+}
+.team, li.category{
+    display: inline-block;
+}
+li.category{
+    list-style: none; 
+    display:inline-block; 
+}
+
+
+
+/* recolor styling section */
+.w3-bar{   
+    background-color: #2d545e;
+    color:white;
+
+}
+.challenge p{
+    color:white;
+}
+.challenge span{
+    color:white;
+}
+
+.overview span{
+    color:black;
+}
+.recruitment label{
+    color:black;
+}
+
+/*Styling for Footer */
+footer .footerstructure{
+  border-style: 1px solid;
+  border-color:black;
+  width:100%;
+  padding: 1rem;
+  background-color:#2d545e;
+  color: white;
+  display:inline-block;
+  position:relative;
+  text-align: center;
+  bottom:0;
+  left:0;
+  z-index: 10;
+}
+.footerstructure #version{
+  margin-right:370px;
+}
+.footerstructure #links{
+  margin-left: 10px;
+}
+.footerstructure #powered{
+  margin-left:220px;
+}
+
+
+</style>
+
+    <!-- top navigation bar -->
+<nav class="w3-bar" style="border:gray;border-width: 2px;border-bottom-style:solid;">
+    <div class="nav-links"></div>
+        <img src="prepr labs logo.jpg" alt="prepr" width="100" length="100">
+        <a href="#explore" class="w3-button w3-bar-item">Explore</a>
+        <a href="#dashboard" class="w3-button w3-bar-item">Dashboard</a>
+        <a href="#my callenges" class="w3-button w3-bar-item">My Challenges</a>
+        <a href="#my labs" class="w3-button w3-bar-item">My Labs</a>
+        <a href="#my projects" class="w3-button w3-bar-item">My Projects</a>
+        <a href="#career explorer" class="w3-button w3-bar-item">Career Explorer</a>
+        <img src="Bell-notification.jpg" alt="bell" width="40" length="40">
+        <img src="Chat box.jpg" alt="chat" width="40" length="40">
+        <img src="Help.jpg" alt="help" width="40" length="40">
+        <input type="text" placeholder="Search...">
+        <img src="profile icon.jpg" alt="Avatar" class="avatar" width="40" length="40">
+        <div class="menuContainer" onclick="navMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+</nav>
+<body>
+
+    <!-- Team building section -->
+    <section class="project">
+        <article class="title">
+            <a>CREATE PROJECT</a>
+            <hr>
+            <img src="Details to Team building complete.jpg" class="transition">
+            <div class="challenge">
+                <p><img src="mini clock.jpg" class="clock"><strong>Challenge:</strong><span>How to clean your BBQ before winter</span></p>
+            </div>
+            <div class="warning">
+                <p><strong>You need to complete following sections after creating your project to meet submission requirements.</strong></p>
+            </div>
+            <section class="overview">
+                <p><strong>Build your team</strong><br>
+                    <span>Building a team is important for your project.</span></p><br>
+            
+                <div class="overviewtitle">
+                    <form action="/action_page.php">
+                        <div class="recruitment">
+                            <label for="fname">Recruiting status</label><br>
+                            <select id="recruiting" name="recruitstatus">
+                                <option value="Select recruiting status for Project">Select recruiting status for Project</option>
+                                <option value="Not currently recruiting">Not currently recruiting</option>
+                                <option value="Currently recruiting">Currently recruiting</option>
+                            </select><br>
+                            <label for="fname">Required skills</label><br>
+                            <select id="lab" name="lab">
+                                <option value="Find teammates with these skills">Find teammates with these skills</option>
+                                <option value="Windows Deployment Services(WDS)">Windows Deployment Services(WDS)</option>
+                                <option value="windows Desktop Administration">Windows Desktop Administration</option>
+                                <option value="Windows Domain">Windows Domain</option>
+                            </select><br>
+                            <input type="checkbox" id="userpermissions1" name="userpermissions1" value="permission1">
+                            <label for="include1" class="include1"><strong>Create project team chat</strong></label><br><br>
+                            <div id="teamMain"></div>
+                            <div  id="teamToCopy" class="team">
+                                <label  for="fname">Team Members</label><label for="fname">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Positions</label><br>
+                                <select id="teammember" name="member">
+                                    <option value="team member">Team Member</option>
+                                    <option value="russell">Russell</option>
+                                    <option value="john Doe">John Doe</option>
+                                    <option value="jane Doe">Jane Doe</option>
+                                </select>
+                                <input type="text">
+                                <div id="priviliges">
+                                    <ul class="categories">
+                                        <li id="cat-1" class="category">
+                                            <label class="selectone">
+                                                <input value="team leader" type="checkbox" id="in-cat-1">Team Leader
+                                            </label>
+                                        </li>
+                                        <li id="cat-2" class="category">
+                                            <label class="selectone">
+                                                <input value="viewer" type="checkbox" id="in-cat-2">Viewer
+                                            </label>
+                                        </li>
+                                        <li id="cat-3" class="category">
+                                            <label class="selectone">
+                                                <input value="editor" type="checkbox" id="in-cat-3">Editor
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- adds new inputs for additional team members  -->
+                            <input type="button" value="+" id="btnPlus" />
+                        </div> 
+                    </form>
+                </div>
+            </section>
+            <section class="navproject">
+                <a href="Create Project.html" class="button">Back</a>
+                <a href="User Dashboard.html" class="button">Create Project</a>
+            </section>
+
+        </article>
+    </section>
+
+
+    <!-- Footer details -->
+    <footer>
+        <div class="footerstructure">
+            <a id="version">v24.0.9</a>
+            <a id="links" >Privacy Policy</a>
+            <a id="links" >Terms of Use</a>
+            <a id="links" >Help Center</a>
+            <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+        </div>
+    </footer>
+
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <!-- adds new inputs for additional team members  -->
+    <script>
+    $("#btnPlus").click(function(){
+        var teamCopy=$("#teamToCopy").html();
+      $("#teamMain").append(teamCopy);
+    });
+    </script>
+
+
+    <!-- top navigation menu position changer-->
+    <script>
+    function navMenu(x) {
+      x.classList.toggle("change");
+    }
+    </script>
+
+
+</body>
+</html>

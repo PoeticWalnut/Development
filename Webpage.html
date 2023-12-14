@@ -1,0 +1,1142 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+<script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<head></head>
+<style>
+  body{
+    min-height: 240vh;
+    background-color:#e1b382;
+  }
+
+  /*dark mode styling */
+  .darkmode{
+    background-color:#2d545e;
+  }
+  #modeswitch{
+    margin-top:8px;
+    background-color:black;
+    color:white;
+  }
+
+  /* top navigation styling */
+  nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 10px solid #15d815;
+  }
+  .avatar{
+  border-radius:50%;
+  }
+  .menuContainer {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .bar2 {opacity: 0;}
+
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+
+
+  .btn-group{
+    margin-left:70px;
+  }
+  .btn-group button {
+  background-color: #FFF; 
+  border: 4px solid black; 
+  color: black; 
+  padding: 20px 20px; 
+  cursor: pointer; 
+  float: left; 
+
+}
+  .btn-group button:click {
+  background-color: #1e00ff;
+  color: #FFF;
+  }
+.sectionheader{
+  justify-content: center;
+}
+  h1 {
+    margin-top: 60px;
+    margin-bottom: 5px;
+    margin-right: 160px;
+    margin-left: 190px;
+    text-align: center;
+  } 
+  p{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 160px;
+    margin-left: 190px;
+    text-align: center;
+  }
+
+  /*interests section styling */
+  .interests{
+    background-color:#2d545e;
+    text-align: center;
+  }
+  .interests p{
+    color:white;
+  }
+  .interests h1{
+    color:white;
+  }
+
+  .interests button{
+    float:left;
+  }
+  .middle_search input[type=text]{
+    padding: 5px;
+    margin-top: 0px;
+    font-size: 17px;
+    margin-right: 160px;
+    margin-left: 500px;
+    border-style: 3px solid;
+    border-color:black;
+  }
+  .middle_search button {
+  float: left;
+  padding: 15px 15px;
+  margin-top:0px;
+  margin-right: 160px;
+  margin-left: 465px;
+  background: #f7f4f4;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  }
+  .middle_search input[type=text],.middle_search button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 40%;
+    margin: 0;
+    padding: 14px;
+    margin-right: 160px;
+    margin-left: 400px;
+    margin-top: 0px;
+  }
+  .middle_search input[type=text] {
+    border: 1px solid #FFF;  
+  }
+
+
+  /* tag cloud styling*/
+  .tag-cloud {
+    display: inline-block;
+    text-align: center;
+    color: black;
+    padding: 3px 5px;
+    font-family: Arial;
+    border-radius: 25px;
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 20px;
+  } 
+
+
+/* side panel styling */
+  
+  #side-panel {
+  top: 20px;
+  left: 10px;
+  width:10%;
+  background: #e1b382;
+  /*background: rgb(13, 13, 13);*/
+  overflow-x: hidden;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+}
+
+#side-panel a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+}
+
+#side-panel a:hover {
+  color: #064579;
+}
+#side-panel hr{
+  color:black;
+}
+
+
+/* program search and sort by styling*/
+#searchandsort{
+  z-index: 1;
+  top: -80px;
+  left: 195px;
+  width:80%;
+  background: #e1b382;
+  overflow-x: hidden;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+  padding: 10px 10px 10px 10px;
+}
+#searchandsorttwo{
+  z-index: 1;
+  top: -110px;
+  left: 195px;
+  width:80%;
+  background: #e1b382;
+  overflow-x: hidden;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+  padding: 10px 10px 10px 10px;
+}
+#searchandsortthree{
+  z-index: 1;
+  top: -243px;
+  left: 195px;
+  width:80%;
+  background: #e1b382;
+  overflow-x: hidden;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+  padding: 10px 10px 10px 10px;
+}
+#searchandsortfour{
+  z-index: 1;
+  top: 22px;
+  left: 195px;
+  width:80%;
+  background: #e1b382;
+  overflow-x: hidden;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+  padding: 10px 10px 10px 10px;
+}
+#searchbutton{
+  margin-right: 530px;
+}
+
+
+/* filter styling */
+#sidefilters{
+  top: 2px;
+  left: 10px;
+  width:15%;
+  background: #e1b382;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+}
+#sidefiltersfour{
+  top: 100px;
+  left: 10px;
+  width:15%;
+  background: #e1b382;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 0px 0px 3px #272626;
+}
+
+
+/*pagination styling */
+.paginationlabs {
+  display: inline-block;
+  z-index: 10;
+  top: -550px;
+  left: 870px;
+}
+
+.paginationlabs a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 3px 3px 3px 3px;
+  transition: background-color .3s;
+  border: 1px solid black;
+  font-size: 10px;
+}
+
+.paginationlabs a.active {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.paginationlabs a:hover:not(.active) {
+  background-color: #ddd;
+}
+.paginationlabstwo{
+  display: inline-block;
+  z-index: 10;
+  top: -580px;
+  left: 870px;
+}
+.paginationlabstwo a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 3px 3px 3px 3px;
+  transition: background-color .3s;
+  border: 1px solid black;
+  font-size: 10px;
+}
+
+.paginationlabstwo a.active {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.paginationlabstwo a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.paginationlabsthree{
+  display: inline-block;
+  z-index: 10;
+  top: -712px;
+  left: 870px;
+}
+.paginationlabsthree a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 3px 3px 3px 3px;
+  transition: background-color .3s;
+  border: 1px solid black;
+  font-size: 10px;
+}
+
+.paginationlabsthree a.active {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.paginationlabsthree a:hover:not(.active) {
+  background-color: #ddd;
+}
+.paginationlabsfour{
+  display: inline-block;
+  z-index: 10;
+  top: 2px;
+  left: 870px;
+}
+.paginationlabsfour a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 3px 3px 3px 3px;
+  transition: background-color .3s;
+  border: 1px solid black;
+  font-size: 10px;
+}
+
+.paginationlabsfour a.active {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.paginationlabsfour a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+
+/* Program styling */
+.labcontentone{
+  top: -530px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontenttwo{
+  top: -510px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontentonetwo{
+  top: -560px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontenttwotwo{
+  top: -540px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontentonethree{
+  top: -693px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontenttwothree{
+  top: -673px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontentonefour{
+  top: 20px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontenttwofour{
+  top: 40px;
+  left: 240px;
+  width:77%;
+  background: white;
+  overflow-x: hidden;
+  padding: 1px 1px 1px 1px;
+  border-style: 3px solid;
+  border-color: black;
+  border-radius: 4px 4px 4px 4px; 
+  box-shadow: 3px 3px 3px 3px #272626;
+}
+.labcontent h3{
+  font-size: larger;
+  margin-left: 330px;
+}
+.labcontent h4{
+  font-size: medium;
+  margin-left: 330px;
+}
+.labcontent p#contentparagraph{
+  margin-left: 330px;
+  text-align: left;
+}
+.labcontent img{
+  float:left;
+  margin-top: 0px;
+}
+.labcontent button#labsredirect{
+  margin-left:330px;
+  margin-bottom: 10px;
+}
+
+.labcontent p#host{
+  float:left;
+  margin-left:10px;
+  margin-top:-50px;
+
+}
+.labcontent button#follow{
+  background-color: rgb(72,140,205);
+  color:white;
+  border-color: white;
+  box-shadow: 1px 1px 1px #272626;
+  margin-left:10px
+}
+
+.labcontenttwo button#follow{
+  margin-left:375px;
+}
+.labcontenttwofour button#follow{
+  margin-left:375px;
+}
+
+
+/*Styling for Footer */
+footer .footerstructure{
+  border-style: 1px solid;
+  border-color:black;
+  width:100%;
+  padding: 1rem;
+  background-color:#2d545e;
+  color:white;
+  display:inline-block;
+  position:relative;
+  text-align: center;
+  bottom:-167px;
+  left:0;
+  z-index: 10;
+}
+.footerstructure #version{
+  margin-right:370px;
+}
+.footerstructure #links{
+  margin-left: 10px;
+}
+.footerstructure #powered{
+  margin-left:220px;
+}
+
+
+
+
+
+/* recolor styling section */
+.w3-bar{   
+    background-color: #2d545e;
+    color:white;
+
+}
+#hrcolor{
+  color: #2d545e;
+}
+
+</style>
+<body>
+
+      <!--Top Navigation bar -->
+<nav class="w3-bar" style="border:black;border-width: 2px;border-bottom-style:solid;">
+  <div class="Top"></div>
+    <img src="prepr labs logo.jpg" alt="prepr" width="100" length="100">
+    <a href="Webpage.html" class="w3-button w3-bar-item">Explore</a>
+    <a href="User Dashboard.html" class="w3-button w3-bar-item">Dashboard</a>
+    <a href="#my challenges" class="w3-button w3-bar-item">My Challenges</a>
+    <a href="#my Labs" class="w3-button w3-bar-item">My Labs</a>
+    <a href="#my Projects" class="w3-button w3-bar-item">My Projects</a>
+    <a href="#career explorer" class="w3-button w3-bar-item">Career Explorer</a>
+    <img src="Bell-notification.jpg" alt="bell" width="40" length="40">
+    <img src="Chat box.jpg" alt="chat" width="40" length="40">
+    <img src="Help.jpg" alt="help" width="40" length="40">
+    <input type="text" placeholder="Search...">
+    <img src="profile icon.jpg" alt="Avatar" class="avatar" width="40" length="40">
+    <div class="menuContainer" onclick="navMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+</nav>
+    <!--Middle section section -->
+<section class="interests" id="interestSection">
+  
+  <h1><b>Explore Your Interests</b></h1>
+  <button onclick="myInterests()">X</button>
+  <p>We’ll recommend content based on your interests we’ve listed here.<br>
+    Feel free to add or remove topics to customize your experience !</p>
+  <div class="middle_search">
+    <form action="/action_page.php"></form>
+      <input  type="text" placeholder="Search skills">
+    </form>
+  </div>
+  <p><b>Click an interest to narrow your <br> recommendations.</b></p>
+   <!-- tag cloud section -->
+    <span class="tag-cloud">Cloud Architecture</span>
+    <span class="tag-cloud">WAF</span>
+    <span class="tag-cloud">Excel Dashboards</span>
+    <span class="tag-cloud">Digital</span>
+    <span class="tag-cloud">Presenting Solutions</span>
+    <br>
+    <span class="tag-cloud">Information Architecture</span>
+    <span class="tag-cloud">Supplier Management</span>
+    <span class="tag-cloud">Wireframing</span>
+    <span class="tag-cloud">Material Design</span>
+    <span class="tag-cloud">CSS</span>
+</section>
+
+  <!-- content navigation button group section -->
+<section class="contentNavigation">
+  <div class="btn-group" style="width:90%">
+    <ul data-role="tabs" data-tabs-type="group" data-expand="true">
+      <li><a id="sectionheader" href="#section-one" >Labs</a></li>
+      <li><a id="sectionheader" href="#section-two" >Challenges</a></li>
+      <li><a id="sectionheader" href="#section-three" >Resources</a></li>
+      <li><a id="sectionheader" href="#section-four" >Projects</a></li>
+    </ul>
+  </div>
+
+  <!-- dark mode button-->
+  <button id="modeswitch" onclick="darkMode()">Toggle dark mode</button>
+
+
+  
+  <section class="relatedContent">
+
+    <!-- Labs and lab programs section -->
+    <div class="section" id="section-one">
+      <div class="labsandprograms">
+        <div id="side-panel">
+          <a href="#labsSection">Labs</a>
+          <hr id="hrcolor"  width="100%" >
+          <a href="#labPrograms">Lab Programs</a>
+        </div>
+
+        <!-- search and sort section -->
+        <div id="searchandsort">
+          <input type="text" placeholder="Search">
+          <button id="searchbutton" type="submit">Search</button>
+          <label for="fname">Sort By</label>
+          <select id="sorter" name="sorter">
+              <option value="recently added">Recently added</option>
+              <option value="most popular">Most popular</option>
+          </select>
+        </div>
+
+        <!-- side filters section -->
+        <div id="sidefilters">
+          <label for="fname">Duration</label>
+          <br>
+          <select id="durationfilter" name="durationfilter">
+            <option value="less than 2 hours">Less than 2 hours</option>
+              <option value="2-4 hours">2-4 Hours</option>
+              <option value="4-8 hours">4-8 Hours</option>
+              <option value="1-2 days">1-2 Days</option>
+              <option value="3-5 days">3-5 Days</option>
+              <option value="5+ days">5+ Days</option>
+          </select>
+          <hr id="hrcolor" >
+          <label for="fname">Level</label>
+          <br>
+          <select id="levelfilter" name="levelfilter">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="mixed">Mixed</option>
+          </select>
+          <hr id="hrcolor" >
+          <label for="fname">Type</label>
+          <br>
+          <select id="typefilter" name="typefiler">
+              <option value="assess">Assess</option>
+              <option value="onboard">Onboard</option>
+              <option value="engage">Engage</option>
+              <option value="grow">Grow</option>
+          </select>
+          <hr id="hrcolor" >
+          <label for="fname">Mode</label>
+          <br>
+          <select id="modefilter" name="modefilter">
+              <option value="independent">independent</option>
+              <option value="team-based">Team-based</option>
+          </select>
+          <hr id="hrcolor" >
+          <label for="fname">Organizations</label>
+          <select id="organizationfilter" name="organizationfilter">
+              <option value="prepr">Prepr</option>
+              <option value="linux foundation">Linux Foundation</option>
+              <option value="magnet">Magnet</option>
+              <option value="certNexus">CertNexus</option>
+              <option value="ontario chamber of commerce">Ontario Chamber of Commerce</option>
+              <option value="youth boost">Youth Boost</option>
+          </select>
+          <hr id="hrcolor" >
+          <label for="fname">Skills</label>
+          <br>
+          <select id="skillfilter" name="skillfilter">
+              <option value="underserved markets">Underserved Markets</option>
+              <option value="niche market identification">Niche Market Identification</option>
+              <option value="neural intelligence">Neural Intelligence</option>
+          </select>
+        </div>
+
+        <!-- pagination section -->
+        <div class="paginationlabs">
+          <a href="#">&laquo;</a>
+          <a class="active" href="#">1</a>
+          <a  href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+        </div>
+
+        <!-- content section -->
+        <div class="labcontent" id="labsSection">
+          <div class="labcontentone">
+            <img src="getting started prepr image.jpg" width="300" length="300">
+            <h3>Getting Started Lab For Employment Service Providers(ESP)<button id="follow">+Follow</button></h3>
+            <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+              Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+              Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">If you're here then you're a passionate employment service provider who’s constantly 
+              looking for new tools and concepts. We've prepared a series of Challenges just for you! 
+              The Challenges in this Lab are designed to help you learn how you can get the most out 
+              of our platform, get started today!
+            </p>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Prepr Labs</button>
+          </div>
+          <div class="labcontenttwo">
+            <img src="UX Feedback Lab image.jpg" width="300" length="300">
+            <h3>UX Feedback Lab<button id="follow">+Follow</button></h3>
+            <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+              Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+              Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">Our goal is to get useful feedback for PreprLabs pre-react 
+              and our redesigned Version on Figma post-react. PreprLabs has different types of 
+              users: regular users (the Learners) and those who create their tasks in forms of 
+              Labs and Challenges (the Managers).   The next step for you is to start the Challenge 
+              within this Lab. 
+            </p>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Prepr Labs</button>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footerstructure2">
+            <a id="version">v24.0.9</a>
+            <a id="links">Privacy Policy</a>
+            <a id="links">Terms of Use</a>
+            <a id="links">Help Center</a>
+            <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+        </div>
+      </footer>
+
+
+
+
+    </div>
+
+
+    <!-- Challenges and Challenge Paths section-->
+    <div class="section" id="section-two">
+      <div class="challengesandpaths">
+        <div id="side-panel">
+          <a href="#challenges">Challenges</a>
+          <hr id="hrcolor"  width="100%" >
+          <a href="#challengePaths">Challenge Paths</a>
+        </div>
+        <div id="searchandsorttwo">
+          <input type="text" placeholder="Search">
+          <button id="searchbutton" type="submit">Search</button>
+          <label for="fname">Sort By</label>
+          <select id="sorter" name="sorter">
+              <option value="recently added">Recently added</option>
+              <option value="most popular">Most popular</option>
+          </select>
+        </div>
+        <div id="sidefilters">
+          <label for="fname">Duration</label>
+          <br>
+          <select id="durationfilter" name="durationfilter">
+            <option value="less than 2 hours">Less than 2 hours</option>
+              <option value="2-4 hours">2-4 Hours</option>
+              <option value="4-8 hours">4-8 Hours</option>
+              <option value="1-2 days">1-2 Days</option>
+              <option value="3-5 days">3-5 Days</option>
+              <option value="5+ days">5+ Days</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Level</label>
+          <br>
+          <select id="levelfilter" name="levelfilter">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="mixed">Mixed</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Type</label>
+          <br>
+          <select id="typefilter" name="typefiler">
+              <option value="assess">Assess</option>
+              <option value="onboard">Onboard</option>
+              <option value="engage">Engage</option>
+              <option value="grow">Grow</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Mode</label>
+          <br>
+          <select id="modefilter" name="modefilter">
+              <option value="independent">independent</option>
+              <option value="team-based">Team-based</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Organizations</label>
+          <select id="organizationfilter" name="organizationfilter">
+              <option value="prepr">Prepr</option>
+              <option value="linux foundation">Linux Foundation</option>
+              <option value="magnet">Magnet</option>
+              <option value="certNexus">CertNexus</option>
+              <option value="ontario chamber of commerce">Ontario Chamber of Commerce</option>
+              <option value="youth boost">Youth Boost</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Skills</label>
+          <br>
+          <select id="skillfilter" name="skillfilter">
+              <option value="underserved markets">Underserved Markets</option>
+              <option value="niche market identification">Niche Market Identification</option>
+              <option value="neural intelligence">Neural Intelligence</option>
+          </select>
+        </div>
+        <div class="paginationlabstwo">
+          <a href="#">&laquo;</a>
+          <a class="active" href="#">1</a>
+          <a  href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+        </div>
+        <div class="labcontent" id="labsSection">
+          <div class="labcontentonetwo">
+            <img src="challenge learning image.jpg" width="300" length="300">
+            <h3>Challenge Learning for AWS</h3>
+            <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+              Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+              Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">Amazon Elastic Compute Cloud (Amazon EC2) offers the 
+              broadest and deepest compute platform, with over 750 instances and choice of the 
+              latest processor, storage, networking, operating system, and purchase model to help 
+              you best match the needs of your workload. We are the first major cloud provider that 
+              supports Intel, AMD, and Arm processors, the only cloud with on-demand EC2 Mac instances,
+              and th...
+            </p>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Leadership</button>
+          </div>
+          <div class="labcontenttwotwo">
+            <img src="UX Feedback Lab image.jpg" width="300" length="300">
+            <h3>UX Feedback Lab<button id="follow">+Follow</button></h3>
+            <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+              Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+              Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">If you're here then you're a passionate employment service provider who’s constantly 
+              looking for new tools and concepts. We've prepared a series of Challenges just for you! 
+              The Challenges in this Lab are designed to help you learn how you can get the most out 
+              of our platform, get started today!
+            </p>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Prepr Labs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Resource Modules,collections and Groups section-->
+    <div class="section" id="section-three">
+      <div class="resourceModulesCollectionsandGroups">
+        <div id="side-panel">
+          <a href="#resourceModules">Resource Modules</a>
+          <hr id="hrcolor" width="100%" >
+          <a href="#resourceCollections">Resource Collections</a>
+          <hr id="hrcolor" width="100%" >
+          <a href="#resourceGroups">Resource Groups</a>
+        </div>
+        <div id="searchandsortthree">
+          <input type="text" placeholder="Search">
+          <button id="searchbutton" type="submit">Search</button>
+          <label for="fname">Sort By</label>
+          <select id="sorter" name="sorter">
+              <option value="recently added">Recently added</option>
+              <option value="most popular">Most popular</option>
+          </select>
+        </div>
+        <div id="sidefilters">
+          <label for="fname">Duration</label>
+          <br>
+          <select id="durationfilter" name="durationfilter">
+            <option value="less than 2 hours">Less than 2 hours</option>
+              <option value="2-4 hours">2-4 Hours</option>
+              <option value="4-8 hours">4-8 Hours</option>
+              <option value="1-2 days">1-2 Days</option>
+              <option value="3-5 days">3-5 Days</option>
+              <option value="5+ days">5+ Days</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Level</label>
+          <br>
+          <select id="levelfilter" name="levelfilter">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="mixed">Mixed</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Type</label>
+          <br>
+          <select id="typefilter" name="typefiler">
+              <option value="assess">Assess</option>
+              <option value="onboard">Onboard</option>
+              <option value="engage">Engage</option>
+              <option value="grow">Grow</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Mode</label>
+          <br>
+          <select id="modefilter" name="modefilter">
+              <option value="independent">independent</option>
+              <option value="team-based">Team-based</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Organizations</label>
+          <select id="organizationfilter" name="organizationfilter">
+              <option value="prepr">Prepr</option>
+              <option value="linux foundation">Linux Foundation</option>
+              <option value="magnet">Magnet</option>
+              <option value="certNexus">CertNexus</option>
+              <option value="ontario chamber of commerce">Ontario Chamber of Commerce</option>
+              <option value="youth boost">Youth Boost</option>
+          </select>
+          <hr id="hrcolor">
+          <label for="fname">Skills</label>
+          <br>
+          <select id="skillfilter" name="skillfilter">
+              <option value="underserved markets">Underserved Markets</option>
+              <option value="niche market identification">Niche Market Identification</option>
+              <option value="neural intelligence">Neural Intelligence</option>
+          </select>
+        </div>
+        <div class="paginationlabsthree">
+          <a href="#">&laquo;</a>
+          <a class="active" href="#">1</a>
+          <a  href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+        </div>
+        <div class="labcontent" id="labsSection">
+          <div class="labcontentonethree">
+            <img src="DTP slides image.jpg" width="300" length="300">
+            <h3>DTP Module 11 Slides</h3>
+            <h4><strong>Status:open</strong> &#x2022; Duration:<strong>Less than 2 hours</strong>&#x2022;
+              Level:<strong>Beginner</strong>&#x2022;Type:<strong>None</strong>Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">Email Marketing
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Digital</button>
+          </div>
+          <div class="labcontenttwothree">
+            <img src="UX Feedback Lab image.jpg" width="300" length="300">
+            <h3>UX Feedback Lab<button id="follow">+Follow</button></h3>
+            <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+              Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+              Mode:<strong>None</strong></h4>
+            <p id="contentparagraph">If you're here then you're a passionate employment service provider who’s constantly 
+              looking for new tools and concepts. We've prepared a series of Challenges just for you! 
+              The Challenges in this Lab are designed to help you learn how you can get the most out 
+              of our platform, get started today!
+            </p>
+            <p id="host">Hosted by <strong>Prepr</strong></p>
+            <br>
+            <button href="#" id="labsredirect">Prepr Labs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <!-- Projects section -->
+    <div class="section" id="section-four">
+      <div id="searchandsortfour">
+        <input type="text" placeholder="Search">
+        <button id="searchbutton" type="submit">Search</button>
+        <label for="fname">Sort By</label>
+        <select id="sorter" name="sorter">
+            <option value="recently added">Recently added</option>
+            <option value="most popular">Most popular</option>
+        </select>
+      </div>
+      <div id="sidefiltersfour">
+        <label for="fname">Status</label>
+        <br>
+        <select id="statusfilter" name="statusfilter">
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+            <option value="inProgress">inProgress</option>
+            <option value="submitted">Submitted</option>
+        </select>
+      </div>
+      <div class="paginationlabsfour">
+        <a href="#">&laquo;</a>
+        <a class="active" href="#">1</a>
+        <a  href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div>
+      <div class="labcontent" id="labsSection">
+        <div class="labcontentonefour">
+          <img src="getting started prepr image.jpg" width="300" length="300">
+          <h3>Getting Started Lab For Employment Service Providers(ESP)<button id="follow">+Follow</button></h3>
+          <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+            Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+            Mode:<strong>None</strong></h4>
+          <p id="contentparagraph">If you're here then you're a passionate employment service provider who’s constantly 
+            looking for new tools and concepts. We've prepared a series of Challenges just for you! 
+            The Challenges in this Lab are designed to help you learn how you can get the most out 
+            of our platform, get started today!
+          </p>
+          <p id="host">Hosted by <strong>Prepr</strong></p>
+          <br>
+          <button href="#" id="labsredirect">Prepr Labs</button>
+        </div>
+        <div class="labcontenttwofour">
+          <img src="UX Feedback Lab image.jpg" width="300" length="300">
+          <h3>UX Feedback Lab<button id="follow">+Follow</button></h3>
+          <h4><strong>Public Lab</strong> &#x2022; Last Update:<strong>1 year ago</strong>&#x2022;
+            Members:<strong>37</strong>&#x2022;Duration:<strong>None</strong>&#x2022;Type:<strong>None</strong>
+            Mode:<strong>None</strong></h4>
+          <p id="contentparagraph">Our goal is to get useful feedback for PreprLabs pre-react 
+            and our redesigned Version on Figma post-react. PreprLabs has different types of 
+            users: regular users (the Learners) and those who create their tasks in forms of 
+            Labs and Challenges (the Managers).   The next step for you is to start the Challenge 
+            within this Lab. 
+          </p>
+          <p id="host">Hosted by <strong>Prepr</strong></p>
+          <br>
+          <button href="#" id="labsredirect">Prepr Labs</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+  <!-- Footer details -->
+  <footer>
+    <div class="footerstructure">
+        <a id="version">v24.0.9</a>
+        <a id="links">Privacy Policy</a>
+        <a id="links">Terms of Use</a>
+        <a id="links">Help Center</a>
+        <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+    </div>
+  </footer>
+
+  <!-- allows the Interests section to be removed -->
+  <script>
+    function myInterests() {
+      const element = document.getElementById("interestSection");
+      element.remove();
+    }
+  </script>
+
+
+  <!-- Follow button Switching Script -->
+  <script>
+    // selects the button and the div
+    const button = document.getElementById('follow');
+    const div = document.getElementsByClassName('labcontent');
+
+    // defines the function to change the button
+    function changeContent() {
+      div.innerHTML = '<button id="following">U+2713Following</button>';
+    }
+
+    // event listener to respond to click
+    button.addEventListener('click', changeContent);
+  </script>
+
+
+  <!-- changes shape/position of nav menu -->
+  <script>
+    function navMenu(x) {
+      x.classList.toggle("change");
+    }
+  </script>
+
+
+  <!-- dark mode toggle-->
+  <script>
+    function darkMode() {
+    var element = document.body;
+    element.classList.toggle("darkmode");
+    }
+  </script>
+
+
+
+
+</body>
+</html>

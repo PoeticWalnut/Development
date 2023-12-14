@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+    <style>
+
+
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        #mainpg{
+            background-color: blue;
+            border-color: white;
+            border-style: solid;
+            color: white;
+            width:20%;
+            left:5px;
+            text-decoration: none;
+            text-align: center;
+            margin-left:510px;
+        }
+
+
+        
+    </style>
+
+
+
+    <h1>SUCCESS!</h1>
+
+    <p id="info-output"></p>
+    <p id="info-output2"></p>
+    <p id="info-output3"></p>
+    <p id="info-output4"></p>
+    <p id="info-output5"></p>
+    <p id="info-output6"></p>
+    <p id="info-output7"></p>
+    
+
+    <hr>
+
+    <!-- direct user to main page after login -->
+    <h2>Please proceed to main page</h2>
+    <a id="mainpg" href="Webpage.html" class="button">Main Page</a>
+    
+
+    
+    <script>
+        window.onload = function() {
+
+          // Get the value from localStorage
+            var value = localStorage.getItem("userInfo");
+            var value2 = localStorage.getItem("userInfo2");
+            var value3 = localStorage.getItem("userInfo3");
+            var value4 = localStorage.getItem("userInfo4");
+            var value5 = localStorage.getItem("userInfo5");
+            var value6 = localStorage.getItem("userInfo6");
+            var value7 = localStorage.getItem("userInfo7");
+
+
+          // Display the value on the page
+            var output = document.getElementById('info-output');
+            var output2 = document.getElementById('info-output2');
+            var output3 = document.getElementById('info-output3');
+            var output4 = document.getElementById('info-output4');
+            var output5 = document.getElementById('info-output5');
+            var output6 = document.getElementById('info-output6');
+            var output7 = document.getElementById('info-output7');
+            
+
+            output.innerText = value;
+            output2.innerText = value2;
+            output3.innerText = value3;
+            output4.innerText = value4;
+            output5.innerText = value5;
+            output6.innerText = value6;
+            output7.innerText = value7;
+            
+
+        }
+    </script> 
+
+</html>

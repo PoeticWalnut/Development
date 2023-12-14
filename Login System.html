@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+<style>
+    body {
+      display: flex;
+      font-family: Arial; 
+      margin:0;
+      min-height: 120vh;
+      
+    }
+    
+    /* Slideshow container */
+    .slideshow-container {
+      position:relative;
+      margin-top: 100px;
+      margin-left: 150px;
+      max-width: 400px;
+    }
+    .slideshowbox{
+      border-radius: 100px 100px 100px 100px;
+    }
+
+
+    /* form container specifications */
+    .input-fields{
+      left: 200px;
+      width: 300px;
+      height: 650px;
+      margin-top: 10px;
+      border:none;
+      background-color: white;
+      position: relative;
+    }
+
+    
+    .form-header img{
+      justify-content: center;
+    }
+
+
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50px;
+      width: auto;
+      padding: 30px;
+      margin-top: 30px;
+      color: rgb(215, 232, 196);
+      font-weight: bold;
+      font-size: 25px;
+      transition: 0.6s ease;
+      border-radius: 0 10px 10px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: -70px;
+    }
+    /* Position the "prev button" to the left */
+    .prev {
+      left: -70px;
+    }
+    
+    .prev:hover, .next:hover {
+      color: white;
+    }
+    .slidedots{
+      display:inline-block;
+      margin-left: 175px;
+    }
+    
+
+
+    /* The dots */
+    .dot {
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      height: 12px;
+      width: 12px;
+      justify-content: space-between;
+      box-shadow: 0px 0px 4px #272626;
+      background-color: #080808;
+      border-radius: 50%;
+      transition: background-color 0.4s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #faf8f8;
+    }
+    
+    .slidedots{
+      display:inline-block;
+      margin-left: 175px;
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+
+
+
+    /*Styling for Login links */
+    #Micro{
+      background-color: blue;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #LinkIn{
+      background-color: blue;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      top: 5px;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #Goog{
+      background-color: red;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      top:10px;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #Appe{
+      border-style: double;
+      border-width: 2px;
+      border-color: black;
+      background-color: white;
+      border-style: solid;
+      color:black;
+      top:15px;
+      width:95%;
+      left:5px;
+      text-decoration:none;
+      text-align: center;
+    }
+    #Magn{
+      background-color: red;
+      border-color: white;
+      border-style: solid;
+      color:white;
+      top: 20px;
+      width: 95%;
+      left: 5px;
+      bottom: 10px;
+      /* padding: 1rem 1.5rem; */
+      text-decoration: none;
+      text-align: center;
+    }
+    #LogI{
+      background-color: orange;
+      border-color: white;
+      border-style: solid;
+      width: 95%;
+      color:white;
+      left:5px;
+      /* padding: 1rem 1.5rem; */
+      text-decoration:none;
+      text-align: center;
+    }
+    .username{
+      width: 90%;
+    }
+    .password{
+      width: 90%;
+    }
+    #or{
+      text-align:center;
+    }
+    #forgot{
+      text-align: right;
+      color: gray;
+    }
+
+
+
+    /*Styling for Footer */
+    footer .footerstructure{
+      border-style: 3px solid;
+      border-radius: 4px 4px;
+      border-color:black;
+      width:100%;
+      padding: 1rem;
+      background-color: #2d545e;
+      color:white;
+      display:inline-block;
+      position:absolute;
+      text-align: center;
+      bottom:0;
+      left:0;
+      z-index: 10;
+    }
+    .footerstructure #version{
+      margin-right:370px;
+    }
+    .footerstructure #links{
+      margin-left: 10px;
+    }
+    .footerstructure #powered{
+      margin-left:220px;
+    }
+
+    </style>
+    </head>
+    
+
+    <!-- slideshow section -->
+<body style="background-color:  #2d545e;">
+  <section class="slidesection" id="section-left">
+    <div class="slideshow-container">
+      <div class="slideshowbox">
+        <div class="introSlides">
+          <img src="Join Challenges,Labs and Projects.jpg" style="width:100%">
+        </div>
+        <div class="introSlides">
+          <img src="Showcase your Skills and Portfolio.jpg" style="width:100%">
+        </div>
+        <div class="introSlides">
+          <img src="Grow Your Network.jpg" style="width:100%">
+        </div>
+        <div class="introSlides">
+          <img src="Get Recognized.jpg" style="width:100%">
+        </div>
+      </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      <br>
+      <div class="slidedots">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>  
+      </div>
+    </div>
+  </section>
+
+
+
+      <!-- Form Details -->
+  <section class="input-fields" id="section-right">
+    <form action="/action_page.php" name="myForm" onsubmit="return validateForm()" method="post" required>
+      <fieldset>
+        <div class="form-header">
+          <img src="prepr labs logo.jpg" style="width:60% height=50%"><br>
+          <hr>
+          <p><ons-input name="uname"  id="userInfo" class="username" modifier="underbar" placeholder="User name or email"></ons-input></p>
+          <p><ons-input name="pname"  id="userInfo2" class="password" modifier="underbar" type="password" placeholder="Password" ></ons-input></p>
+          <p id="forgot">Forgot Password?</p>
+        </div>
+        <div class="form-bottom">
+          <a id="LogI" href="Success Page.html" type="submit" class="button" onclick="submitInfo()">Log in</a>
+          <p id ="or"> or </p>
+          <!-- SSOs -->
+          <a id="Micro" href="Success Page.html" class="button">Continue with Microsoft</a>
+          <a id="LinkIn" href="Success Page.html"class="button">Continue with LinkedIn</a>
+          <a id="Goog" href="Success Page.html" class="button">Continue with Google</a>
+          <a id="Appe" href="Success Page.html"class="button">Continue with Apple</a>
+          <a id="Magn" href="Success Page.html"class="button">Continue with Magnet</a>
+          <br>
+          <br>
+          <p>Don't have an account?<a href = "Register Page.html" target="_blank">&nbspSign up</a></p>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+    
+
+
+    <!-- Footer details -->
+    <footer>
+      <div class="footerstructure">
+        <a id="version">v24.0.9</a>
+        <a id="links" href="">Privacy Policy</a>
+        <a id="links" href="">Terms of Use</a>
+        <a id="links"  href="">Help Center</a>
+        <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+      </div>
+    </footer>
+
+
+
+    <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    /* handles slide arrow function*/
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    /* makes sure dots correspond to the right slide */
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+
+    /* handles how the slides are displayed */
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("introSlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+
+    <!-- supposted to display message in case form is incomplete -->
+    <script>
+      function validateForm() {
+        var x = document.forms["myForm"]["uname"].value;
+        var y = document.forms["myForm"]["pname"].value;
+        if (x == "" || x == null || y == "" || y == null) {
+          alert("Login information incomplete");
+          return false;
+        }
+      }
+
+    </script>
+
+
+
+    <!--For transferring user info to success page-->
+    <script>
+    function submitInfo() {
+       /* localStorage.clear(); */
+      // Gets the info entered by the user
+        var x = document.getElementById("userInfo").value;
+        var y = document.getElementById("userInfo2").value;
+        
+      // Store the info in localStorage
+      /* localStorage.clear(); */
+
+        localStorage.setItem("userInfo",x);
+        localStorage.setItem("userInfo2",y);
+      // Redirect to the success page
+        window.location.href = 'Success Page.html';
+      } 
+    </script>
+
+
+
+</body>
+</html> 
+    

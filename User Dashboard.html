@@ -1,0 +1,690 @@
+<DOCTYPE! html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+    <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+
+body{
+    background-color:#e1b382;
+    min-height: auto;
+    overflow: hidden;
+
+}
+
+
+
+/* top navigation stylings */
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+.avatar{
+  border-radius:50%;
+}
+.menuContainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+
+/* greeting stylings */
+.greeting p{
+    font-family: Arial;
+    font-size: 25px;
+}
+.greeting a{
+    font-family: Arial;
+    font-size: 18px;
+}
+
+h2{
+    font-family: Arial;
+    font-size: 18px;
+    text-align: left;
+    color:white;
+}
+article {
+        padding: 10px;
+        margin: 10px;
+        background: #2d545e;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 3px 3px 3px #12343b;
+}
+article p{
+    color:white;
+}
+article a{
+    color:white;
+
+}
+
+
+/* dashboard styling */
+.dashboard{
+        align-content: center;
+        width:97.5%;
+        justify-content: center;
+        background: #e1b382;
+        border-radius: 10px 10px 10px 10px;
+        border: 2px solid #2d545e;
+        box-shadow: 3px 3px 3px #12343b;
+        display:flex;
+        flex-wrap: wrap;
+        margin-left: 15px;
+        margin-right: 0px;
+}
+.dashboard p{
+    font-size:small;
+    color: gray;
+} 
+.dashboard img{
+    text-align: center;
+}
+
+.notebook{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+
+
+
+/*challenges deadline section styling */
+.challenges span{
+    color:#e1b382;
+}
+.challenges a{
+    font-size: smaller;
+}
+
+hr{
+    margin-top: 2px;
+}
+h4{
+    color:white;
+}
+
+
+/* button stylings */
+.button {
+    background-color: #e1b382;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-top: 4px;
+    align-items: center;
+    margin-left: 80px;
+
+  cursor: pointer;
+}
+.button2{
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-top: 4px;
+    align-items: right;
+
+  cursor: pointer;
+}
+.button3{
+    background-color: #e1b382;
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  border-radius: 2px 2px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  margin-top: 4px;
+  align-items: center;
+  cursor: pointer;
+}
+.button4{
+    background-color: blue;
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  border-radius: 2px 2px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  margin-top: 4px;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+h3{
+    text-align: left;
+    font-size: 15px;
+    color:white;
+    margin-right: 340px;
+}
+
+
+
+/* Leaderboard styling */
+#leaderboardHead{
+    display: inline-block;
+}
+
+table {
+  font-family: arial;
+  border-collapse: collapse;
+  width: 95%;
+  margin-left: 10px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+
+/*Achievement section styling */
+#badgeprepr{
+    margin-left:70px;
+}
+#innovator{
+    margin-left:30px;
+    font-size: larger;
+    color:white;
+}
+.achievement button{
+    margin-left:110px;
+    padding: 10px;
+    width:25%
+}
+
+#exploreMore{
+    font-size: medium;
+    margin-left:70px;
+    color:white;
+}
+.achievement a{
+    justify-content: center;
+    font-size: 15px;
+    color:#04AA6D;
+}
+
+
+
+/* align button group */
+.btn-group{
+    text-align: center;
+}
+
+
+/* recolor styling section */
+.w3-bar{   
+    background-color: #2d545e;
+    color:white;
+
+}
+#textchange{
+    color:white;
+}
+
+
+
+/* styling for content sections */
+.labcontentone{
+    width:100%;
+    height:140px;
+    background: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 1px 1px 1px 1px;
+    border-style: 3px solid;
+    border-color: black;
+    border-radius: 4px 4px 4px 4px; 
+    box-shadow: 2px 2px 2px 2px #272626;
+}
+.labcontenttwo{
+    width:100%;
+    height:140px;
+    margin-top: 10px;
+    background: white;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    padding: 1px 1px 1px 1px;
+    border-style: 3px solid;
+    border-color: black;
+    border-radius: 4px 4px 4px 4px; 
+    box-shadow: 2px 2px 2px 2px #272626;
+}
+.labcontentthree{
+    width:100%;
+    height:140px;
+    margin-top: 10px;
+    background: white;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    padding: 1px 1px 1px 1px;
+    border-style: 3px solid;
+    border-color: black;
+    border-radius: 4px 4px 4px 4px; 
+    box-shadow: 2px 2px 2px 2px #272626;
+}
+#section-two p{
+    font-size:larger;
+    text-align: center;
+    color:white;
+}
+#section-four p{
+    font-size:larger;
+    text-align: center;
+    color:white;
+}
+#section-seven img{
+    margin-left: 50px;
+}
+#section-seven p{
+    color:white;
+}
+#section-eight p{
+    font-size:larger;
+    text-align: center;
+    color:white;
+}
+#create {
+    
+    background-color:#e1b382;
+    font-size: small;
+    width: 18%;
+    color:white;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 1px 1px 1px #272626;
+    text-decoration: none;
+    margin-left:160px;
+}
+
+
+/*Styling for Footer */
+footer .footerstructure{
+  border-style: 1px solid;
+  border-color:black;
+  width:100%;
+  padding: 1rem;
+  background-color:#2d545e;
+  color:white;
+  display:inline-block;
+  position:relative;
+  text-align: center;
+  top:20px;
+  bottom:0;
+  left:0;
+  z-index: 10;
+}
+.footerstructure #version{
+  margin-right:370px;
+}
+.footerstructure #links{
+  margin-left: 10px;
+}
+.footerstructure #powered{
+  margin-left:220px;
+}
+
+
+</style>
+
+
+    <!--top navigation bar-->
+<nav class="w3-bar" style="border:gray;border-width: 2px;border-bottom-style:solid;">
+    <div class="nav-links"></div>
+        <img src="prepr labs logo.jpg" alt="prepr" width="100" length="100">
+        <a href="#explore" class="w3-button w3-bar-item">Explore</a>
+        <a href="#dashboard" class="w3-button w3-bar-item">Dashboard</a>
+        <a href="#my callenges" class="w3-button w3-bar-item">My Challenges</a>
+        <a href="#my labs" class="w3-button w3-bar-item">My Labs</a>
+        <a href="#my projects" class="w3-button w3-bar-item">My Projects</a>
+        <a href="#career explorer" class="w3-button w3-bar-item">Career Explorer</a>
+        <img src="Bell-notification.jpg" alt="bell" width="40" length="40">
+        <img src="Chat box.jpg" alt="chat" width="40" length="40">
+        <img src="Help.jpg" alt="help" width="40" length="40">
+        <input type="text" placeholder="Search...">
+        <img src="profile icon.jpg" alt="Avatar" class="avatar" width="40" length="40">
+        <div class="menuContainer" onclick="navMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+  </nav>
+
+
+<body>
+
+
+    <!--Greeting-->
+  <div class="Greeting">
+        <p><strong>Good afternoon, Russell-Dane.</strong><a href="">Complete Profile</a></p>
+  </div>
+
+
+  <section class="dashboard">
+
+
+    <!--Progress section-->
+    <article style="width:300px; height: 600px;">
+        <h2><strong>My Progress</strong></h2>
+        <p id="textchange">You joined PreprLabs on Nov 12,2023, here is your <br> Challenge journey.</p>
+        <div id="myPlot" style="width:100%;max-width:300px;background-color: #2d545e;"></div>
+    </article>
+
+
+    <!--Prepr lab explore-->
+    <article style="width:300px; height: 600px;">
+        <h2><strong>Continue Where You Left Off</strong></h2>
+        <p id="textchange">Start your PreprLabs journey now!</p>
+        <img src="Notebook prepr.jpg" alt="continue" class="notebook">
+        <a id="exploreMore" href="#Webpage.html" class="button">Explore more</a>
+    </article>
+
+
+    <!-- Challenge Deadlines-->
+    <article style="width:300px; height: 600px;">
+        <h2><strong>Challenge Deadlines</strong></h2>
+        <div class="Challenges">
+            <a id="textchange"><img src="orange calendar.jpg" width="20" height="20"><strong>Front End Developer Challenge 1: Web Page Creation</strong> <br>
+            <span>Due November 25 at 12:49PM</span></a>
+            <hr>
+            <a id="textchange"><img src="orange calendar.jpg" width="20" height="20"><strong> End Developer Challenge 2: Login System </strong><br>
+            <span>Due November 25 at 12:49PM</span></a>
+            <hr>
+            <a id="textchange"><img src="orange calendar.jpg" width="20" height="20"><strong>Front End Developer Challenge 3: Dashboard and Project Creation</strong> <br>
+            <span>Due November 25 at 12:49PM</span></a>
+            <hr>
+            <a id="textchange"><img src="orange calendar.jpg" width="20" height="20"><strong>Front End Developer Challenge 4: Accessibility Integration</strong><br>
+            <span>Due November 25 at 12:49PM</span></a>
+            <hr>
+            <a id="textchange"><img src= "gray calendar.jpg" width="20" height="20"><strong>DTP & FUN - Team Business Innovation Challenge</strong><br>
+            <span>Due December 1 at 11:59PM</span></a>
+            <hr>
+        </div>
+    </article>
+
+
+    <!--Leaderboard box-->
+    <article class="leaderboard" style ="width:600px; height: 400px;"> <!-- image not loading for some reason -->
+        <h3 id="leaderboardHead">Leaderboard<a img="leaderboard question mark.jpg"></a></h3>
+        <button id="leaderboardHead" href="" class="viewleaderboard">View Leaderboard</button>
+        <table>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Learning Points</th>
+              <th>Learning Rank</th>
+              <th>Achievements</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>129343</td>
+              <td>105</td>
+              <td>400</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane Doe</td>
+              <td>101344</td>
+              <td>99</td>
+              <td>385</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Rob Doe</td>
+              <td>95078</td>
+              <td>98</td>
+              <td>380</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Janet Doe</td>
+              <td>84980</td>
+              <td>90</td>
+              <td>350</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Daisy Doe</td>
+              <td>77247</td>
+              <td>84</td>
+              <td>329</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Derek Doe</td>
+              <td>65023</td>
+              <td>74</td>
+              <td>297</td>
+            </tr>
+        </table>
+    
+    </article>
+
+
+    <!--Achievement badge box-->
+    <article class="achievement" style="width:300px; height: 400px;">
+        <h4><img src="mini badge.jpg"><strong>Latest Achievement</strong></h4>
+        <img id="badgeprepr" src="Prepr Badge.jpg" width="150" height="150">
+        <br>
+        <p id="innovator"><strong>Innovator and Disruptor</strong></p>
+        <button class="button3">View Detail</button>
+        <br>
+        <button class="button4">Share</button>
+    </article>
+
+    
+    <!-- Labs section -->
+    <article style="width:350px; height: 600px;">
+        <h2>2 Labs</h2>
+        <hr>
+        <div class="btn-group" style="width:90%">
+            <ul data-role="tabs" data-tabs-type="group" data-expand="true">
+              <li><a id="sectionheader" href="#section-one" >My Labs</a></li>
+              <li><a id="sectionheader" href="#section-two" >Invited</a></li>
+            </ul>
+        </div>
+        <div class="section" id="section-one">
+            <div class="labcontentone">
+                <p style=color:#2d545e;font-size:16px;>Web Developer</p>
+                <p><img src="web developer career lab small image.jpg" width="70" height="50">Front end web 
+                    developer is responsible for designing, coding, and modifying webpages using 
+                    standard HTML/CSS practices...</p>
+            </div>
+            <div class="labcontenttwo">
+                <p style=color:#2d545e;font-size:16px;>Career Planning</p>
+                <p><img src="career planning small image.jpg" width="70" height="50">Planning a career 
+                    involves several steps, and it’s a process that requires self-reflection, research, 
+                    building your brand, networking, and learning to plan.</p>
+            </div>
+        </div>
+        <div class="section" id="section-two">
+            <p>No pending lab invitations</p>
+        </div>
+    </article>
+
+
+    <!-- Challenges section -->
+    <article style="width:350px; height: 600px;">
+        <h2>3 Challenges</h2>
+        <hr>
+        <div class="btn-group" style="width:90%">
+            <ul data-role="tabs" data-tabs-type="group" data-expand="true">
+              <li><a id="sectionheader" href="#section-three" >My Challenges</a></li>
+              <li><a id="sectionheader" href="#section-four" >Invited</a></li>
+              <li><a id="sectionheader" href="#section-five" >Following</a></li>
+            </ul>
+        </div>
+            <div class="section" id="section-three">
+                <div class="labcontentone">
+                    <p style=color:#2d545e;font-size:16px;>DTP & FUN - Team Business Innovation Challenge</p>
+                    <p><img src="Prepr challenge small image.jpg" width="70" height="50">How might we 
+                        better support businesses around us? Businesses around the world have had to 
+                        adapt over the last 3 years...</p>
+                </div>
+                <div class="labcontenttwo">
+                    <p style=color:#2d545e;font-size:16px;>Career Planning 7:Engage with Alumni & Industry Professionals</p>
+                    <p><img src="Prepr challenge small image.jpg" width="70" height="50">Share your prepr 
+                        lab and school projects with hiring managers! Showcase your work... </p>
+                </div>
+                <div class="labcontentthree">
+                    <p style=color:#2d545e;font-size:16px;>Career Planning 6:Develop Your Learning Plan</p>
+                    <p><img src="Prepr challenge small image.jpg" width="70" height="50">Connect with new grads, upper-year
+                        students or industry professionals to learn how...</p>
+                </div>
+            </div>
+            <div class="section" id="section-four">
+                <p>No current Challenge invitations</p>
+            </div>
+            <div class="section" id="section-five">
+                <div class="labcontentone">
+                    <p style=color:#2d545e;font-size:16px;>DTP & FUN - Team Business Innovation Challenge</p>
+                    <p><img src="Team innovation challenge small image.jpg" width="70" height="50">How might we 
+                        better support businesses around us? Businesses around the world have had to 
+                        adapt over the last 3 years...</p>
+                </div>
+            </div>
+    </article>
+
+
+    <!-- Projects section -->
+    <article style="width:350px; height: 600px;">
+        <h2>1 Project<a class="button" id="create" href="Create Project.html">Create</a></h2>
+        <hr>
+        <div class="btn-group" style="width:90%">
+            <ul data-role="tabs" data-tabs-type="group" data-expand="true">
+              <li><a id="sectionheader" href="#section-six" >My Projects</a></li>
+              <li><a id="sectionheader" href="#section-seven" >Need to assess</a></li>
+              <li><a id="sectionheader" href="#section-eight" >Invited</a></li>
+            </ul>
+        </div>
+            <div class="section" id="section-six">
+                <div class="labcontentone">
+                    <p style=color:#2d545e;font-size:16px; id="info-output"></p>
+                    <p id="info-output3"><img src=""  id="info-output2" width="70" height="50"></p>
+                </div>
+            </div>
+            <div class="section" id="section-seven">
+                <img src="prepr assess image.jpg">
+                <p>This area will display project submissions for you to assess in a 
+                    challenge if you’re invited to be an assessor!</p>
+            </div>
+            <div class="section" id="section-eight">
+                <p>No pending Project invitations</p>
+            </div>
+    </article>      
+  </section>
+
+  <!-- Footer details -->
+  <footer>
+    <div class="footerstructure">
+      <a id="version">v24.0.9</a>
+      <a id="links" >Privacy Policy</a>
+      <a id="links" >Terms of Use</a>
+      <a id="links" >Help Center</a>
+      <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+    </div>
+</footer>
+
+
+
+    <!-- Donut plot-->
+    <script>
+    const xArray = ["Project Submitted", "Project Created", "Invited", "Followed"];
+    const yArray = [1, 5, 5, 2];
+    
+    const layout = {title:"Challenges"};
+    
+    const data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
+    
+    Plotly.newPlot("myPlot", data, layout);
+    </script>
+
+
+
+    <!--changes position of nav menu icon--> 
+    <script>
+    function navMenu(x) {
+      x.classList.toggle("change");
+    }
+    </script>
+
+
+    <!-- uploads newly created project -->
+    <script>
+    window.onload = function() {
+    
+        // Get the value from localStorage
+        var value = localStorage.getItem("titleName");
+        var value2 = localStorage.getItem("coverimage");   
+        var value3 = localStorage.getItem("descriptionDetails");
+            
+          // Display the value on the page
+        var output = document.getElementById('info-output');
+        var output2 = document.getElementById('info-output2'); 
+        var output3 = document.getElementById('info-output3');
+       
+           
+        output.innerText = value;
+        output2.innerHTML = value2;
+        output3.innerText = value3;
+
+    }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

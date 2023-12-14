@@ -1,0 +1,441 @@
+<DOCTYPE! html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<style> 
+
+body{
+    background-color:#e1b382;
+}
+
+
+/* navigation menu styling*/
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+.avatar{
+  border-radius:50%;
+}
+.menuContainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+/* project creation styling */
+.project{
+    width: 95%;
+    background: #e1b382;
+    margin-right: 0px;
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 100px;
+}
+.overview{
+    padding: 10px;
+    margin: 10px;
+    background: #e1b382;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 3px #12343b;
+    width: 90%;
+    margin-right: 0px;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.overview p{
+    color: black;
+    margin-left: 80px;
+}
+.projectbanner{
+    padding: 10px;
+    margin: 10px;
+    background: #e1b382;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 3px #12343b;
+    width: 90%;
+    margin-right: 0px;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.projectbanner p{
+    color: black;
+    margin-left: 80px;
+}
+.projectbanner span{
+    color: black;
+}
+.uploadarea{
+    padding: 10px;
+    margin: 10px;
+    border-style:dashed;
+    border-color: #2d545e;
+    background: #e1b382;
+    width: 90%;
+    margin-right: 0px;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    align-items: center;
+    margin-left: 80px;
+
+  cursor: pointer;
+}
+.navproject .button{
+    color: #2d545e;
+    border-color:black;
+    border-style:solid;
+    border-radius: 10px;
+    background-color: white;
+    padding: 8px 8px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    align-items: center;
+    margin-left: 350px;
+    margin-right: 30px;
+
+  cursor: pointer;
+}
+
+.title{
+    color: white;
+    font-size: large;
+    font-family: Arial;
+    padding: 10px;
+    margin: 0px;
+    background: #2d545e;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 3px #12343b;
+}
+
+.title .transition{
+    margin-left: 470px;
+    margin-top: 20px;
+    height: auto;
+    width:20%;
+}
+.challenge{
+    margin-left:40px;
+}
+.challenge p{
+    color:black;
+}
+.challenge span{
+    color:black;
+}
+.warning{
+    width:90%;
+    margin-left: 40px;
+    color:black;
+    font-size: smaller;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: orange ;
+    background-color: rgb(255,243,203);
+}
+#noimage {
+    margin-left: 380px;
+}
+#imagespec, #oR{
+    text-align: center;
+}
+
+#coverimageLabel{
+    background-color: #2d545e;
+    color: white;
+    padding: 0.8rem;
+    font-family: Arial;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-left: 360px;
+}
+#coverimage{
+    margin-left: 310px;
+}
+#embedcode{
+    margin-left: 380px;
+}
+
+.overviewtitle .asterisk{
+    color:red;
+}
+.overviewtitle{
+    margin-left: 80px;
+}
+.overviewtitle .slugbox{
+    margin-left: 5px;
+}
+
+
+/* recolor styling section */
+.w3-bar{   
+    background-color: #2d545e;
+    color:white;
+
+}
+label{
+    color:black;
+}
+.challenge p{
+    color:white;
+}
+.challenge span{
+    color:white;
+}
+
+
+
+/*Styling for Footer */
+footer .footerstructure{
+  border-style: 1px solid;
+  border-color:black;
+  width:100%;
+  padding: 1rem;
+  background-color:#2d545e;
+  color:white;
+  display:inline-block;
+  position:relative;
+  text-align: center;
+  bottom:0;
+  left:0;
+  z-index: 10;
+}
+.footerstructure #version{
+  margin-right:370px;
+}
+.footerstructure #links{
+  margin-left: 10px;
+}
+.footerstructure #powered{
+  margin-left:220px;
+}
+
+</style>
+
+        <!-- Top Navigation menu -->
+<nav class="w3-bar" style="border:gray;border-width: 2px;border-bottom-style:solid;">
+    <div class="nav-links"></div>
+        <img src="prepr labs logo.jpg" alt="prepr" width="100" length="100">
+        <a href="#explore" class="w3-button w3-bar-item">Explore</a>
+        <a href="#dashboard" class="w3-button w3-bar-item">Dashboard</a>
+        <a href="#my callenges" class="w3-button w3-bar-item">My Challenges</a>
+        <a href="#my labs" class="w3-button w3-bar-item">My Labs</a>
+        <a href="#my projects" class="w3-button w3-bar-item">My Projects</a>
+        <a href="#career explorer" class="w3-button w3-bar-item">Career Explorer</a>
+        <img src="Bell-notification.jpg" alt="bell" width="40" length="40">
+        <img src="Chat box.jpg" alt="chat" width="40" length="40">
+        <img src="Help.jpg" alt="help" width="40" length="40">
+        <input type="text" placeholder="Search...">
+        <img src="profile icon.jpg" alt="Avatar" class="avatar" width="40" length="40">
+        <div class="menuContainer" onclick="navMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+</nav>
+<body>
+
+        <!-- create project section -->
+    <section class="project">
+        <article class="title">
+            <a>CREATE PROJECT</a>
+            <hr>
+            <img src="Details to Team building.jpg" class="transition">
+            <div class="challenge">
+                <p><img src="mini clock.jpg" class="clock"><strong>Challenge:</strong><span>No active challenge selection</span></p>
+            </div>
+            <div class="warning">
+                <p><strong>To browse challenge requirements here, you need to select an active challenge below.</strong></p>
+            </div>
+
+
+            <!-- Overview section -->
+            <section class="overview">
+                <p><strong>Project Overview</strong></p>    
+                <div class="overviewtitle">
+                    <form action="/action_page.php">
+                            <label for="fname">Title<span class="asterisk">*</span></label><br>
+                            <input type="text" id="titleName" placeholder="Max. 150 characters"><br>   
+                            <label for="fname">Project slug<span class="asterisk">*</span></label><br>                             
+                            <input type="text" placeholder="Project slug"><br>
+                            <label for="fname">Description<span class="asterisk">*</span></label><br>                             
+                            <textarea name="message" id="descriptionDetails"   rows="10" cols="30"></textarea><br>
+                            <label for="fname">Active Challenge<span class="asterisk">*</span></label><br>
+                            <select id="actchallenge" name="actchallenge" onchange="changeResult()">
+                                <option value="How to clean your BBQ before winter">How to clean your BBQ before winter</option>
+                                <option value="How to prepare your car for winter">How to prepare your car for winter</option>
+                                <option value="Dealing with difficult clients">Dealing with difficult clients</option>
+                                <option value="Greeting a customer">Greeting a customer</option>
+                                <option value="Prepr Quality Assurance Team Project Manager Challenge 4: Presenting the Project to Stakeholders">
+                                        Prepr Quality Assurance Team Project Manager Challenge 4: Presenting the Project to Stakeholders</option>
+                            </select><br>
+                            <label for="fname">Associated Lab</label><br>
+                            <select id="lab" name="lab">
+                                <option value="">Select Lab</option>
+                            </select><br>
+                            <input type="checkbox" id="userpermissions1" name="userpermissions1" value="permission1">
+                            <label for="vehicle1">Allow users outside your team to view your project</label><br>
+                            <input type="checkbox" id="userpermissions2" name="userpermissions2" value="persmission2">
+                            <label for="vehicle2"> Allow users outside your team download your project files</label><br>
+                    </form>
+                </div>
+            </section>
+
+
+            <!-- Project banner section -->
+            <section class="projectbanner">
+                <p><strong>Upload Project Banner</strong><br><span class="subtitle">Please select png, jpg or jpeg
+                     image with minimum dimension of width: 625px, height: 355px</span></p>
+                     <div class="uploadarea">
+                        <img src="no image logo.jpg" id="noimage" style="width:80% height=40%">
+                        <p id="imagespec">Drag & Drop</p>
+                        <p id="oR">or</p>
+                        <label id="coverimageLabel" for="coverimage">Choose a Project Cover Image</label>
+                        <input type="file" id="coverimage" name="filename" hidden/>
+                        <span id="file-chosen">No file chosen</span>
+                        <p id="imagespec">Please select png,jpg or jpeg image with minimum dimension of width: 625px,<br>height: 355px<br>
+                            or</p>
+                        <input  id="embedcode" type="text" placeholder="Insert video embed code">
+                     </div>
+            </section>
+
+
+            <!-- navigation links to other sections -->
+            <section class="navproject">
+                <a href="User Dashboard.html" class="button">Cancel</a>
+                <a href="Team Building for Project.html" class="button" onclick="recordedDetails()">Continue</a>
+            </section>
+
+
+        </article>
+    </section>
+
+
+    <!-- Footer details -->
+    <footer>
+        <div class="footerstructure">
+          <a id="version">v24.0.9</a>
+          <a id="links" >Privacy Policy</a>
+          <a id="links" >Terms of Use</a>
+          <a id="links" >Help Center</a>
+          <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+        </div>
+    </footer>
+
+
+
+    <!--
+    <script>
+        window.onload = function() { 
+            localStorage.clear();
+        }
+    </script>
+    -->
+
+
+    <!-- to save challenge pick -->
+    <script>
+    function changeResult() {
+        var x = document.getElementById("actchallenge").value;
+        localStorage.setItem("actchallenge",x);
+    }
+    </script>
+
+
+    <!-- to save project title, description and cover image-->
+    <script>
+    function recordedDetails(){
+
+        var y= document.getElementById("titleName").value;
+        var z= document.getElementById("descriptionDetails").value;
+        var w= document.getElementById("coverimage").value;
+
+
+        localStorage.setItem("coverimage",w);
+        localStorage.setItem("titleName",y);
+        localStorage.setItem("descriptionDetails",z);
+    }
+    </script>
+
+
+    <!-- navigation menu change function --> 
+    <script>
+        function navMenu(x) {
+          x.classList.toggle("change");
+        }
+    </script>
+
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <!--displays name of cover image that is uploaded-->
+    <script>
+        const coverimage = document.getElementById('coverimage');
+
+        const fileChosen = document.getElementById('file-chosen');
+
+        coverimage.addEventListener('change', function(){
+        fileChosen.textContent = this.files[0].name
+    })
+    </script>
+
+
+    <!--enables the ability to open files on user's computer to input cover image-->
+    <script>
+        $("input").change(function(e) {
+        for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+            
+            var file = e.originalEvent.srcElement.files[i];
+            
+            var img = document.createElement("img");
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                img.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+            $("input").after(img);
+        }
+        });
+    </script>
+
+
+</body>
+</html> 

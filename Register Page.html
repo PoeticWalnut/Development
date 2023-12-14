@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<style>
+    
+    body {
+      display: flex;
+      font-family: Arial; 
+      margin:0;
+      min-height: 210vh;
+    }
+    
+    /* Slideshow container */
+    .slideshow-container {
+      position:relative;
+      margin-top: 100px;
+      margin-left: 150px;
+      max-width: 400px;
+    }
+    .slideshowbox{
+      border-radius: 100px 100px 100px 100px;
+    }
+    .input-fields{
+      left: 200px;
+      width: 330px;
+      height: 1140px;
+      margin-top: 10px;
+      border:none;
+      background-color: white;
+      position: relative;
+    }
+
+    .form-header img{
+      justify-content: center;
+    }
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 30%;
+      width: auto;
+      padding: 30px;
+      margin-top: -22px;
+      color: rgb(215, 232, 196);
+      font-weight: bold;
+      font-size: 25px;
+      transition: 0.6s ease;
+      border-radius: 0 10px 10px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: -70px;
+    }
+    /* Position the "prev button" to the left */
+    .prev {
+      left: -70px;
+    }
+    
+      /* arrows' behaviour on hover */
+    .prev:hover, .next:hover {
+      color: white;
+    }
+    .slidedots{
+      display:inline-block;
+      margin-left: 165px;
+    }
+    
+    /* The dots */
+    .dot {
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      height: 12px;
+      width: 12px;
+      justify-content: space-between;
+      box-shadow: 0px 0px 4px #272626;
+      background-color: #080808;
+      border-radius: 50%;
+      transition: background-color 0.4s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #faf8f8;
+    }
+    
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+
+
+    #or{
+      text-align:center;
+    }
+
+
+    /*Styling for Login links */
+    #Micro{
+      background-color: blue;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #LinkIn{
+      background-color: blue;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      top: 5px;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #Goog{
+      background-color: red;
+      border-color: white;
+      border-style: solid;
+      color: white;
+      top:10px;
+      width:95%;
+      left:5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #Appe{
+      border-style: double;
+      border-width: 2px;
+      border-color: black;
+      background-color: white;
+      border-style: solid;
+      color:black;
+      top:15px;
+      width:95%;
+      left:5px;
+      text-decoration:none;
+      text-align: center;
+    }
+    #Magn{
+      background-color: red;
+      border-color: white;
+      border-style: solid;
+      color:white;
+      top: 20px;
+      width: 95%;
+      left: 5px;
+      bottom: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+    #RegI{
+      background-color: orange;
+      border-color: white;
+      border-style: solid;
+      width: 95%;
+      color:white;
+      left:5px;
+      text-decoration:none;
+      text-align: center;
+    }
+
+
+
+    /*Styling for Dropdown Menus*/
+  .dropbtn, .dropbtnn {
+    background-color:white;
+    color: gray;
+    padding: 30px;
+    font-size: 19px;
+    border: none;
+    cursor: pointer;
+  }
+
+.dropbtn:hover, .dropbtn:focus, .dropbtnn:hover, .dropbtnn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content, .dropdown-contentn {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a, .dropdown-contentn a {
+  color: black;
+  padding: 10px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+.show {
+  display: block;
+}
+#conditions{
+  font-size: xx-small;
+}
+.g-recaptcha{
+  margin-left:-13px;
+}
+#policies{
+  font-size: x-small;
+}
+.username{
+  width: 90%;
+}
+.password{
+  width: 90%;
+}
+#myDropdown{
+  width:100%;
+}
+#redirects{
+  font-size: small;
+}
+
+
+    /*Styling for Footer */
+footer .footerstructure{
+  border-style: 1px solid;
+  border-color:black;
+  width:100%;
+  padding: 1rem;
+  background-color:#2d545e;
+  color:white;
+  display:inline-block;
+  position:absolute;
+  text-align: center;
+  bottom:0;
+  left:0;
+  z-index: 10;
+}
+.footerstructure #version{
+  margin-right:370px;
+}
+.footerstructure #links{
+  margin-left: 10px;
+}
+.footerstructure #powered{
+  margin-left:220px;
+}
+    
+</style>
+<head></head>
+    
+<body style="background-color: #2d545e;">
+  <section class="slidesection" id="section-left">
+
+    <!-- Slide images,sizing and positioning-->
+    <div class="slideshow-container">
+      <div class="slideshowbox">
+        <div class="introSlides">
+          <img src="Join Challenges,Labs and Projects.jpg" style="width:100%">
+        </div>
+      
+        <div class="introSlides">
+          <img src="Showcase your Skills and Portfolio.jpg" style="width:100%">
+        </div>
+        
+        <div class="introSlides">
+          <img src="Grow Your Network.jpg" style="width:100%">
+        </div>
+
+        <div class="introSlides">
+            <img src="Get Recognized.jpg" style="width:100%">
+        </div>
+      </div>
+
+      <!-- arrow buttons -->
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      <br>
+
+      <!-- slide corresponding dots -->
+      <div class="slidedots">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>  
+      </div>
+    </div>
+  </section>
+
+
+      <!--Form Details -->
+    <section class="input-fields" id="section-right">
+      <form action="/action_page.php"  id="registrationForm">
+        <fieldset>
+          <div class="form-header">
+            <img src="prepr labs logo.jpg" style="width:60% height=50%"><br>
+            <hr>
+            <p><ons-input id="userInfo3"  class="username" modifier="underbar" placeholder="First Name"></p>
+            <p><ons-input id="userInfo4"  class="username" modifier="underbar" placeholder="Last Name"></p>
+            <p><ons-input id="userInfo5"   class="username" modifier="underbar" placeholder="Username"></p>
+            <p><ons-input id="userinfo6"    class="password" modifier="underbar" type="password" placeholder="Password"></p>
+            <p id="conditions">Strength:</p>
+            <p id="conditions">&bull;8 to 14 characters </p>
+            <p id="conditions">&bull;1 uppercase character </p>
+            <p id="conditions">&bull;1 lowercase character </p>
+            <p id="conditions">&bull;1 number </p>
+            <p id="conditions">&bull;1 special character </p>
+            <p id="conditions">@#$%^&*?_~-()+={}[]|;:'“<>/,.</p>
+            <p><ons-input class="password" modifier="underbar" type="password" placeholder="Confirm Password"></p>
+            <p><ons-input id="userInfo7" class="username" modifier="underbar" placeholder="Email"></p>
+          </div>
+
+
+          <!-- dropdown menu for User Types-->
+          <div class="dropdown">
+            <select id="myDropdown" name="dropdown-content">
+                <option value="#user type">User type</option>
+                <option value="#learner">Learner</option>
+                <option value="#job seeeker / applicant">Job seeker / Applicant</option>
+                <option value="employee">Employee</option>
+                <option value="founder">Founder</option>
+                <option value="educator">Educator</option>
+                <option value="mentor">Mentor</option>
+            </select><br>
+            <select id="myDropdown" name="dropdown-content">
+                <option value="select language">Select Language</option>
+                <option value="english">English</option>
+                <option value="french">French</option>
+            </select><br>
+          </div>
+
+
+          <!--reCaptcha-->
+          <div class="g-recaptcha"
+            data-sitekey="6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+            data-callback="onRecaptchaSuccess"
+            data-expired-callback="onRecaptchaResponseExpiry"
+            data-error-callback="onRecaptchaError">
+          </div>
+          <p id="policies"> By registering, you agree to the Prepr <a href="">Terms of use, Privacy policy and cookie policy</a></p>
+          <div class="form-bottom"></div>
+            <a id="RegI" href="Success Page.html" type="submit" class="button" onclick="submitInfo()">Register</a>
+            <p id ="or"> or </p>
+          <!--handles SSOs-->
+            <a id="Micro" href="Success Page.html" class="button">Continue with Microsoft</a>
+            <a id="LinkIn" href="Success Page.html"class="button">Continue with LinkedIn</a>
+            <a id="Goog" href="Success Page.html"  class="button">Continue with Google</a>
+            <a id="Appe" href="Success Page.html"  class="button">Continue with Apple</a>
+            <a id="Magn" href="Success Page.html"  class="button">Continue with Magnet</a>
+            <br>
+            <br>
+            <p id="redirects">Already have an account? <a href="Login System.html">Sign in</a> </p>
+            <p id="redirects">Are you an organization? <a href="Login System.html">Organization register</a></p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+
+
+    <!-- Footer details -->
+    <footer>
+      <div class="footerstructure">
+        <a id="version">v24.0.9</a>
+        <a id="links" href="">Privacy Policy</a>
+        <a id="links" href="">Terms of Use</a>
+        <a id="links"  href="">Help Center</a>
+        <a id="powered">Powered by <strong>LearnLab.ai</strong></a>
+      </div>
+    </footer>
+        
+    
+    
+    
+    <script>    
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+
+    /* handles slide arrow function forwards and backwards*/
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+
+     /* makes sure dots correspond to the right slide */
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+
+    /* handles how the slides are displayed */
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("introSlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+    
+    <!--takes and groups values from registration form to be saved in localstorage
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById('userInfo3').value;
+    const lastName = document.getElementById('userInfo4').value;
+    const userName = document.getElementById('userInfo5').value;
+    const password = document.getElementById('userInfo6').value;
+    const email = document.getElementById('userInfo7').value;
+    
+
+    const formData = {
+        firstName: firstName,
+        lastName: lastName,
+        userName: userName,
+        password: password,
+        email: email
+    };
+
+    saveFormData(formData);
+    });
+    </script>
+         
+    <script>
+
+      function saveFormData(formData) {
+        const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        storedFormData.push(formData);
+
+        localStorage.setItem('formData', JSON.stringify(storedFormData));
+        
+        window.location.href = 'Success Page.html';
+      }
+
+    </script>
+    -->
+
+    <script>
+        function submitInfo() {
+          
+          // Gets the info entered by the user
+          var d=document.getElementById("userInfo3").value;
+          var e=document.getElementById("userInfo4").value;
+          var f=document.getElementById("userInfo5").value;
+          var g=document.getElementById("userInfo6").value;
+          var h=document.getElementById("userInfo7").value;
+          
+
+          // Store the info in localStorage
+          localStorage.setItem("userInfo3",d);
+          localStorage.setItem("userInfo4",e);
+          localStorage.setItem("userInfo5",f);
+          localStorage.setItem("userInfo6",g);
+          localStorage.setItem("userInfo7",h);
+
+          // Redirect to the success page
+          window.location.href = 'Success Page.html';
+
+    } 
+    </script>
+
+
+    <!-- Enables recaptcha -->
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer>
+    </script>
+        
+    
+
+</body>
+</html> 
+    
+
+

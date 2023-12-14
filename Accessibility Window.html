@@ -1,0 +1,744 @@
+<DOCTYPE! html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/current/metro.css">
+     <script src="https://cdn.metroui.org.ua/current/metro.js"></script>
+<style>
+
+/* navigation menu styling*/
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.nav-links{
+    background-color: aqua;
+}
+.avatar{
+  border-radius:50%;
+}
+.menuContainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+
+/* pop-up field styling */
+.form-popup {
+    display: none;
+    overflow: scroll;
+    position: fixed;
+    color:white;
+    width: 580px;
+    height:600px;
+    top: 20px;
+    left: 20px;
+    border: 3px solid black;
+    background:#2d545e;
+    z-index: 9;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.form-popup h1{
+    text-align: center;
+}
+
+.form-popup2 {
+  display: none;
+  position: fixed;
+  color:black;
+  top: 20px;
+  left: 20px;
+  border: 3px solid black;
+  background: white;
+  z-index: 10;
+}
+
+.open-button{
+    float:right;
+}
+
+.btn-cancel{
+    color:white;
+    background-color: black;
+    margin-top:0px;
+    margin-left:0px;
+}
+
+.btn-language{
+    margin-left: 400px;
+}
+ 
+.btn-cancel,.btn-language{
+    display:inline-block;
+    justify-content: space-between;
+}
+
+.close-button{
+    float:left;
+    color:white;
+    background-color: black;
+}
+
+.top-settings{
+    display:inline-block;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+
+
+.reset,.statement,.hideinterface{
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    color:#2d545e;
+    padding:0.5rem;
+}
+
+.search input{
+    display:block;
+    width:80%;
+    margin-top: 5px;
+    margin-left: 60px;
+}
+
+.w3-container{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.profiles p{
+    color:black;
+    margin-left: 50px;
+}
+
+.profiles span{
+    color: gray;
+}
+
+.contentcontainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:  500px;
+    height: 360px;
+    border-radius: 7px 7px 7px 7px;
+
+}
+
+.contentcontainer h3{
+    text-align: left;
+    font-size: 18px;
+    color:black;
+}
+
+
+.tiles-grid{
+    justify-content: center;
+}
+
+
+.tiles-grid p{
+    color:black;
+    text-align: center;
+    margin-top: 30px;
+}
+h2{
+    font-size: large;
+}
+
+
+/*Slider styling*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2d545e;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2d545e;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider, #profileOption{
+    display: inline-block;
+}
+
+
+/*increment/decrement styling*/
+.value-button {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 40px;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: black;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+#usefullinks{
+    margin-left:85px;
+}
+
+
+/* adjust text color dot styling */
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(243,246,251);
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  border:none;
+}
+.dotadjust {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  border:none;
+}
+#dotOne{
+    background-color:rgb(0,118,180) ;
+}
+#dotTwo{
+    background-color: rgb(122,84,157);
+}
+#dotThree{
+    background-color: rgb(206,51,55);
+}
+#dotFour{
+    background-color: rgb(208,112,35);
+}
+#dotFive{
+    background-color: rgb(35,154,158);
+}
+#dotSix{
+    background-color: rgb(77,120,49);
+}
+#dotSeven{
+    background-color: white;
+}
+#dotEight{
+    background-color: black;
+}
+#adjustcolor{
+    text-align: center
+}
+
+
+/* content scaling styling */
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+#decrease{
+  margin-left: 50px;
+  background-color: #2d545e;
+  color:black;
+  font-size: large;
+}
+#increase{
+  background-color: #2d545e;
+  color:black;
+  font-size: large;
+}
+
+
+
+/*footer styling*/
+footer{
+    background-color: black;
+    text-align: center;
+    color:white;
+}
+.w3-bar{
+    background-color: #2d545e;
+}
+
+/*container styling */
+
+.w3-container{
+    background-color: #e1b382;
+}
+.w3-container h2{
+    color:black;
+}
+.w3-container span{
+    color:black;
+}
+.contentcontainer{
+    background-color: #e1b382;
+}
+.form-popup2{
+    background-color: #2d545e;
+}
+.form-popup2 h1{
+    color: white;
+}
+
+
+</style>
+
+    <!-- top navigation bar -->
+<nav class="w3-bar " style="border:gray;border-width: 2px;border-bottom-style:solid;">
+        <img src="prepr labs logo.jpg" alt="prepr" width="100" length="100">
+        <a href="#explore" class="w3-button w3-bar-item">Explore</a>
+        <a href="#dashboard" class="w3-button w3-bar-item">Dashboard</a>
+        <a href="#my callenges" class="w3-button w3-bar-item">My Challenges</a>
+        <a href="#my labs" class="w3-button w3-bar-item">My Labs</a>
+        <a href="#my projects" class="w3-button w3-bar-item">My Projects</a>
+        <a href="#career explorer" class="w3-button w3-bar-item">Career Explorer</a>
+        <img src="Bell-notification.jpg" alt="bell" width="40" length="40">
+        <img src="Chat box.jpg" alt="chat" width="40" length="40">
+        <img src="Help.jpg" alt="help" width="40" length="40">
+        <input type="text" placeholder="Search...">
+        <img src="profile icon.jpg" alt="Avatar" class="avatar" width="40" length="40">
+        <div class="menuContainer" onclick="navMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+</nav>
+
+    <!-- Accessibility window access -->
+    <section class="accessiblityaccess">
+            <button class="open-button" id="floatingicon" onclick="openForm()"><img 
+            src="_Accessibility Access Button.png" width="40" height="40"></button></div>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="formcontainer">
+                <p><button type="button" class="btn-cancel" onclick="closeForm()">X</button>
+                <!--language button-->
+                <div id="availableLanguages">
+                    <button type="button" class="btn-language" onclick="openFormtwo()"><img src="English button.jpg" width="100" height="50"></button></p>
+                </div>
+                <h1>Accessibility Adjustments</h1>
+                <div class="top-settings">
+                    <button type="button" onclick="myFunction()" class="reset">Reset Settings</button>
+                    <button type="button" class="statement">Statement</button>
+                    <button type="button" class="hideinterface">Hide Interface</button><br>
+                </div>
+                <div class="search">
+                    <form action="/action_page.php">
+                      <input type="text" placeholder="Unclear content? Search in Dictionary...">
+                    </form><br>
+                </div>
+
+                <!--Accessibility Profile section-->
+                <section class="w3-container">
+                        <h2>Choose the right accessibility profile for you</h2>
+                    <div class="profiles">
+                        <label class="switch">
+                            <input id="onOff" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p id="profileOption">Seizure Safe Profile<br>
+                        <span>Clear flashes & reduces color</span></p>
+                        <hr>
+                        <label class="switch">
+                            <input id="onOff" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p id="profileOption">Vision Impaired Profile<br>
+                        <span>Enhances website's visuals</span></p>
+                        <hr>
+                        <label class="switch">
+                            <input id="onOff" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p id="profileOption">ADHD Friendly Profile <br>
+                        <span>More focus & fewer distractions</span></p>
+                        <hr>
+                        <label class="switch">
+                            <input id="onOff" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p id="profileOption">Cognitive Disability Profile<br>
+                        <span>Assists with reading & focusing</span></p>
+                        <hr>             
+                    </div>
+                </section>
+
+
+                <!-- Content Adjustments section-->
+                <section class="contentcontainer">
+                    <h3>Content Adjustments</h3>
+                    <div class="tiles-grid">
+                        <div data-role="tile"data-size="wide" style="background-color: #e1b382;">
+                            <p>Content Scaling</p><br>
+                            <button class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</button>
+                            <input type="number" id="number" value="0">
+                            <button class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</button>
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Readable Font</p>
+                            <img src="readable font icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Highlight Tiles</p>
+                            <img src="Highlight Titles icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Highlight Links</p>
+                            <img src="Highlight Links icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Text Magnifier</p>
+                            <img src="text magnifier icon.jpg" class="icon">
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Color Adjustments section-->
+                <section class="contentcontainer">
+                    <h3>Color Adjustments</h3>
+                    <div class="tiles-grid">
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Dark Contrast</p>
+                            <img src="Dark Contrast icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Light Contrast</p>
+                            <img src="Light Contrast icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>High Contrast</p>
+                            <img src="High Contrast icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>High Saturation</p>
+                            <img src="High Saturation icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="wide" style="background-color: #e1b382;">
+                            <p>Adjust Text Colors</p>
+                            <div id ="adjustcolor">
+                                <button id="dotOne" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotTwo" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotThree" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotFour" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotFive" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotSix" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotSeven" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                                <button id="dotEight" onclick="dotFunction()"><span class="dotadjust"></span></button>
+                            </div>
+                            <p>Cancel</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Orientation Adjustments section-->
+                <section class="contentcontainer">
+                    <h3>Orientation Adjustments</h3>
+                    <div class="tiles-grid">
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Mute Sounds</p>
+                            <img src="Mute Sounds icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Hide Images</p>
+                            <img src="Hide Images icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Read Mode</p>
+                            <img src="Read Mode icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="medium" style="background-color: #e1b382;">
+                            <p>Reading Guide</p>
+                            <img src="Reading Guide icon.jpg" class="icon">
+                        </div>
+                        <div data-role="tile"data-size="wide" style="background-color: #e1b382;">
+                            <p>Useful Links</p>
+                            <select id="usefullinks" name="uselinks">
+                                <option value="select an option">Select an option</option>
+                                <option value="home">Home</option>
+                                <option value="header">Header</option>
+                                <option value="footer">Footer</option>
+                                <option value="main content">Main content</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+            </form>
+
+
+            <!-- Language interface selection section-->
+            <div class="form-popup2" id="myForm2">
+                <h1>Choose the Interface Language</h1>
+                <button id="myButton"><img src="English button.jpg" width="100" height="50"></button>
+                <button id="myButtonOne"><img src="Espanol button.jpg" width="100" height="50"></button>
+                <button id="myButtonTwo"><img src="Deutsch button.jpg" width="100" height="50"></button>
+                <button id="myButtonThree"><img src="Portugues button.jpg" width="100" height="50"></button>
+                <button id="myButtonFour"><img src="Francais button.jpg" width="100" height="50"></button>
+                <button id="myButtonFive"><img src="Italiano button.jpg" width="100" height="50"></button>
+                <!--close language window-->
+                <button type="button" class="close-button" onclick="closeFormtwo()">X</button>
+            </div>
+
+
+            <!-- Footer details -->
+            <footer>
+                <p>Web Accessibility By accesiBe&nbsp&nbsp&nbsp&nbspLearn More&nbsp></p>
+            </footer>  
+
+        </div>
+    </section>
+
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" 
+    integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <!-- increase and decrease mechanisms for Content Scaling-->
+    <script>
+        function increaseValue() {
+          document.getElementById("number").stepUp(10);
+        }
+    </script>
+    <script>
+        function decreaseValue() {
+          document.getElementById("number").stepDown(10);
+        }
+    
+    </script>
+
+
+    <!--open and close forms--> 
+    <script>
+        
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+        }
+    function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+        function openFormtwo() {
+        document.getElementById("myForm2").style.display = "block";
+        }
+    function closeFormtwo() {
+          document.getElementById("myForm2").style.display = "none";
+        }
+    </script>         
+
+
+    <!--to reset on-off fields -->
+    <script>
+    function myFunction() {
+        document.getElementById("onOff").checked=false; 
+        document.getElementById("onOff").checked=false;
+        document.getElementById("onOff").checked=false;
+        document.getElementById("onOff").checked=false;
+    }
+    </script>
+
+
+    <!-- changes "dots" to white onclick-->
+    <script>
+    function dotFunction() {
+        document.getElementsByClassName("dotadjust").style.color="white";
+    }
+    </script>
+
+
+    <!-- Language Switching Scripts -->
+    <script>
+        // selects the button and the div
+        const button = document.getElementById('myButton');
+        const div = document.getElementById('availableLanguages');
+      
+        // defines the function to change the button
+        function changeContent() {
+          div.innerHTML = '<button type="button" id="myButton" onclick="openFormtwo()" ><img src="English button.jpg" width="100" height="50"></button>';
+        }
+      
+        // event listener to respond to click
+        button.addEventListener('click', changeContent);
+    </script>
+
+    <script>
+          
+        const buttonOne = document.getElementById('myButtonOne');
+        const divOne = document.getElementById('availableLanguages');
+        
+          
+        function changeContent() {
+            divOne.innerHTML = '<button type="button" id="myButtonOne" onclick="openFormtwo()" ><img src="Espanol button.jpg" width="100" height="50"></button>';
+        }
+        
+          
+          buttonOne.addEventListener('click', changeContent);
+    </script>
+  
+    <script>
+
+        const buttonTwo = document.getElementById('myButtonTwo');
+        const divTwo = document.getElementById('availableLanguages');
+      
+        
+        function changeContent() {
+          divTwo.innerHTML = '<button type="button" id="myButtonTwo" onclick="openFormtwo()" ><img src="Deutsch button.jpg" width="100" height="50"></button>';
+        }
+      
+         
+          buttonTwo.addEventListener('click', changeContent);
+    </script>
+
+    <script>
+          
+        const buttonThree = document.getElementById('myButtonThree');
+        const divThree = document.getElementById('availableLanguages');
+        
+          
+        function changeContent() {
+            divThree.innerHTML = '<button type="button" id="myButtonThree" onclick="openFormtwo()" ><img src="Portugues button.jpg" width="100" height="50"></button>';
+        }
+        
+          
+          buttonThree.addEventListener('click', changeContent);
+    </script>
+
+    <script>
+          
+        const buttonFour = document.getElementById('myButtonFour');
+        const divFour = document.getElementById('availableLanguages');
+        
+          
+        function changeContent() {
+            divFour.innerHTML = '<button type="button" id="myButtonFour" onclick="openFormtwo()" ><img src="Francais button.jpg" width="100" height="50"></button>';
+        }
+        
+          
+          buttonFour.addEventListener('click', changeContent);
+    </script>
+
+    <script>
+         
+        const buttonFive = document.getElementById('myButtonFive');
+        const divFive = document.getElementById('availableLanguages');
+        
+          
+        function changeContent() {
+            divFive.innerHTML = '<button type="button" id="myButtonFive" onclick="openFormtwo()" ><img src="Italiano button.jpg" width="100" height="50"></button>';
+        }
+        
+          
+          buttonFive.addEventListener('click', changeContent);
+    </script>
+
+
+    <!-- changes shape of menu icon-->
+    <script>
+    function navMenu(x) {
+      x.classList.toggle("change");
+    }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
